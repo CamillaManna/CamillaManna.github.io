@@ -1,0 +1,301 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sito di Camilla</title>
+<style>@import url('CSS/style.css');</style>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" type="image/x-icon" href="">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/jquery.nav.js"></script>
+
+<script>
+	$(document).ready(function(){
+		var navHeight = $('.header').height();
+
+		$(window).scroll(function(){
+			if ($(window).scrollTop() > navHeight){
+				$('.header').addClass('scroll');
+			}else{
+				$('.header').removeClass('scroll');
+			}
+		});
+
+		$('.nav').onePageNav();
+	});
+</script>
+
+<script>
+$(document).ready(function(){
+     slideshow(5,1000,5000);
+    });
+
+    function slideshow(n,t1,t2){
+
+     var x = 0;
+     var txt = 0;
+     var stato = 1;
+     $("#foto2").animate({"opacity":"0"},0);
+     $("#foto2").animate({"left":"100%"},0);
+     $("#foto2").animate({"opacity":"1"},0);
+     $("#foto1").attr("src",fotografie(x,n));
+     $("#slide p").html(scritte(txt,n));
+	 $("#slide a").attr("href",link(x,n));
+     x++;
+     $("#foto2").attr("src",fotografie(x,n));
+		 $("#slide a").attr("href",link(x,n))
+
+     var intervallo = setInterval(function(){
+       x++;txt++;
+       if(x>n-1){x=0;}
+       if(txt>n-1){txt=0;}
+       stato = cambiaSlide(x,n,stato,t1,txt);
+     },t2);
+    }
+
+    function cambiaSlide(x,n,stato,t,txt){
+     if(stato==1){
+      var elemento1 = "#foto1";
+      var elemento2 = "#foto2";
+     }else{
+      var elemento1 = "#foto2";
+      var elemento2 = "#foto1";
+     }
+     $(elemento2).animate({"left":"0px"},t);
+     $(elemento1).animate({"left":"-100%"},t,function(){
+      $("#slide p").html(scritte(txt,n));
+	  $("#slide a").attr("href",link(x,n));
+      $(elemento1).animate({"opacity":"0"},0);
+      $(elemento1).animate({"left":"100%"},0);
+      $(elemento1).animate({"opacity":"1"},0,function(){
+        $(elemento1).attr("src",fotografie(x,n));
+      });
+     });
+
+     if(stato==1){stato=0;}else{stato=1;}
+     return stato;
+    }
+
+    function fotografie(x,n){
+     var foto = new Array(n);
+
+     foto[0] = "img/specimen.jpg";
+     foto[1] = "img/taro1.jpg";
+     foto[2] = "img/magazine.jpg";
+     foto[3] = "img/ftf.jpg";
+     foto[4] = "img/card.jpg";
+     return foto[x];
+    }
+
+    function scritte(x,n){
+     var testi = new Array(n);
+
+     testi[0] = "Domaine specimen";
+     testi[1] = "Taro - alt-J";
+     testi[2] = "Brand Magazine";
+     testi[3] = "First Things First";
+     testi[4] = "Illustration";
+
+     return testi[x];
+    }
+
+	function link(x,n){
+     var url = new Array(n);
+
+     url[0] = "http://www.behance.net/gallery/67397675/Communication-design-seminaries";
+     url[1] = "http://www.behance.net/gallery/67310021/Domaine-Type-specimen";
+     url[2] = "http://www.behance.net/gallery/67325123/Taro-alt-J";
+     url[3] = "http://www.behance.net/gallery/67396891/GALVANIZE-Brand-Magazine?";
+     url[4] = "http://www.behance.net/gallery/67311601/First-Things-First-Manifesto";
+
+     return url[x];
+    }
+
+
+</script>
+
+</head>
+
+<body>
+<header id="home">
+	<div class="header">
+
+    	<div class="content">
+
+           <nav>
+           	<ul class="nav">
+            	<li class="menu current"><a href="#home">Home</a></li>
+            	<li class="menu"><a href="#AboutMe">About Me</a></li>
+				<li class="menu"><a href="#Skills">Skills</a></li>
+            	<li class="menu"><a href="#Portfolio">Portfolio</a></li>
+            	<li class="menu"><a href="#contatti">Contatti</a></li>
+           </ul>
+           </nav>
+
+
+        </div>
+    </div>
+</header>
+
+<div class="main">
+
+	<div id="nuvola">
+		<img src="img/nuvola.png" />
+		<div id="titolo">CAMILLA MANNA</div>
+	</div>
+
+</div>
+
+<div class="wrapper" >
+	<div id="AboutMe">
+        <div class="boxAbout clearfix">
+
+
+		<div id="testo1">
+			<h1>About me</h1>
+
+			Sono Camilla, ho 20 anni e vengo dalla provincia di Monza e Brianza; frequento il secondo anni di Design della Comunicazione al Politecnico di Milano e ho precedentemento frequentato il Liceo Artistico Amedeo Modigliani di Giussano studiando nell’indirizzo di Scenografia.
+			<br>
+			<br>
+			L’arte e il Design sono sempre state due mie grandi passioni, per questo sono sempre interessata ad approfondire le mie conoscenze in questi ambiti andando a mostre ed eventi. In particolare sono molto interessata alla grafica e all’illustrazione e mi piacerebbe approfondire lo studio di queste discipline una volta conseguita la laurea al Politecnico.
+			Oltre all’arte e al design una mia grande passione è quella per la musica infatti suono il pianoforte da 10 anni e vado spesso a concerti e festival.
+			<br>
+			<br>
+			Sono una persona sempre in cerca di stimoli e spunti e credo che l’indirizzo di studio che ho scelto sia l’ideale per sviluppare conoscenze in ambiti trasversali.
+			Inoltre mi piace molto viaggiare e scoprire sempre luoghi e culture diverse.
+		</div>
+
+		<div id="fotocami">
+			<img src="img/cami.jpg" />
+		</div>
+
+        </div>
+	</div>
+
+	<div id="Skills">
+	    <div class="boxskill clearfix">
+						<div class="skillscontent">
+					<div id="titoloskills"> <h1>Skills</h1> </div>
+				<div id="f1">
+				<div id="Ai">
+					<img src="img/ai.png"/>
+					<div id="pallini"></div>
+					<div id="pallini"></div>
+					<div id="pallini"></div>
+					<div id="pallinovuoto"></div>
+					<div class="clear"></div>
+					<div id="testoskills"> Realizzazione di illustrazioni e grafici in vettoriale. </div>
+			  </div>
+				</div>
+
+				<div id="f1">
+				<div id="Ai">
+					<img src="img/ps.png"/>
+					<div id="pallini"></div>
+					<div id="pallini"></div>
+					<div id="pallinovuoto"></div>
+					<div id="pallinovuoto"></div>
+					<div class="clear"></div>
+					<div id="testoskills"> Conoscenze basilari di editing di immagini e fotografie  </div>
+				</div>
+			</div>
+
+			<div id="f1">
+			<div id="Ai">
+				<img src="img/id.png"/>
+				<div id="pallini"></div>
+				<div id="pallini"></div>
+				<div id="pallini"></div>
+				<div id="pallinovuoto"></div>
+				<div class="clear"></div>
+				<div id="testoskills"> Competenze medio-avanzate di impaginazione tipografica </div>
+			</div>
+			</div>
+
+			<div id="f1">
+			<div id="Ai">
+				<img src="img/pr.png"/>
+				<div id="pallini"></div>
+				<div id="pallini"></div>
+				<div id="pallinovuoto"></div>
+				<div id="pallinovuoto"></div>
+				<div class="clear"></div>
+				<div id="testoskills"> Conoscenze basilari delle tecniche del video editing </div>
+			</div>
+			</div>
+
+			<div id="f1">
+			<div id="Ai">
+				<img src="img/ae.png"/>
+				<div id="pallini"></div>
+				<div id="pallini"></div>
+				<div id="pallinovuoto"></div>
+				<div id="pallinovuoto"></div>
+				<div class="clear"></div>
+				<div id="testoskills"> Conoscenze basilari delle tecniche di motion graphic </div>
+			</div>
+			</div>
+
+			<div id="f1">
+			<div id="Ai">
+				<img src="img/atom.png"/>
+				<div id="pallini"></div>
+				<div id="pallini"></div>
+				<div id="pallinovuoto"></div>
+				<div id="pallinovuoto"></div>
+				<div class="clear"></div>
+				<div id="testoskills"> Conoscenze di programmazione in HTMl, CSS e JavaScript </div>
+			</div>
+			</div>
+
+      		</div>
+				</div>
+	</div>
+
+	<div id="Portfolio">
+
+		<div id="slide">
+		 <img id="foto1" src="" />
+		 <img id="foto2" src="" />
+		 <a href="" target="_blank">
+		 <p></p></a>
+		</div>
+
+	</div>
+
+	<div id="contatti">
+		<div id="titolocontatti"> <h1>Contatti</h1> </div>
+    <div id="boxmail">
+		  <div id="mail">LA MIA MAIL: <a href="mailto:cami97411@gmail.com">cami97411@gmail.com</a></div>
+		  <div id="mailicon"><img src="img/busta.png"/></div>
+	  </div>
+		<div id="boxsocial">
+		<div id=sottotitolo> I miei social </div>
+
+			<div id="icona">
+				<a href="http://www.instagram.com/mannadalcieloh/" target="_blank"><img src="img/ig.png"/></a>
+		  </div>
+
+		<div id="icona">
+				<a href="http://www.facebook.com/camilla.m.manna" target="_blank"><img src="img/fb.png"/></a>
+		</div>
+
+		<div id="icona">
+				<a href="http://www.behance.net/cami97411cd5d" target="_blank"><img src="img/be.png"/></a>
+		</div>
+<div class="clear"></div>
+		<div id="icona">
+				<a href="http://issuu.com/camillamanna" target="_blank"><img src="img/issu.png"/></a>
+		</div>
+
+		<div id="icona">
+				<a href="http://it.pinterest.com/camilla_manna/" target="_blank"><img src="img/pinterest.png"/></a>
+	</div>
+  </div>
+
+
+</div>
+</div>
+
+</body>
+</html>
